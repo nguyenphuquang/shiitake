@@ -99,8 +99,7 @@ class Shiitake extends ResizeCore {
 
     // are we actually trimming?
     if (this.state.testChildren.length < this.props.children.length) {
-      children = this.state.testChildren.slice(0, -3).split(' ').slice(0, -1);
-      children = `${children.join(' ')}...`;
+      children = this.state.testChildren.slice(0, -3) + '...';
     }
     this._handlingResize = false;
     this.setState({ children, lastCalculatedWidth: ReactDOM.findDOMNode(this.refs.spreader).offsetWidth });

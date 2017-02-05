@@ -31,7 +31,7 @@ var ResizeCore = function (_React$Component) {
   function ResizeCore() {
     _classCallCheck(this, ResizeCore);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ResizeCore).call(this));
+    var _this = _possibleConstructorReturn(this, (ResizeCore.__proto__ || Object.getPrototypeOf(ResizeCore)).call(this));
 
     _this.throttleRate = defaultThrottleRate;
     _this._handleResize = _this._handleResize.bind(_this);

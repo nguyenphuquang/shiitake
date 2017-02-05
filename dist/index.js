@@ -37,7 +37,7 @@ var Shiitake = function (_ResizeCore) {
   _inherits(Shiitake, _ResizeCore);
 
   function Shiitake() {
-    var _Object$getPrototypeO;
+    var _ref;
 
     var _temp, _this, _ret;
 
@@ -47,7 +47,7 @@ var Shiitake = function (_ResizeCore) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Shiitake)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Shiitake.__proto__ || Object.getPrototypeOf(Shiitake)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       lastCalculatedWidth: -1,
       children: '',
       testChildren: ''
@@ -135,8 +135,7 @@ var Shiitake = function (_ResizeCore) {
 
       // are we actually trimming?
       if (this.state.testChildren.length < this.props.children.length) {
-        children = this.state.testChildren.slice(0, -3).split(' ').slice(0, -1);
-        children = children.join(' ') + '...';
+        children = this.state.testChildren.slice(0, -3) + '...';
       }
       this._handlingResize = false;
       this.setState({ children: children, lastCalculatedWidth: _reactDom2.default.findDOMNode(this.refs.spreader).offsetWidth });
@@ -184,10 +183,10 @@ var Shiitake = function (_ResizeCore) {
   }, {
     key: 'render',
     value: function render() {
-      var _state = this.state;
-      var fixHeight = _state.fixHeight;
-      var children = _state.children;
-      var testChildren = _state.testChildren;
+      var _state = this.state,
+          fixHeight = _state.fixHeight,
+          children = _state.children,
+          testChildren = _state.testChildren;
 
       var tagNames = { main: (0, _constants.setTag)(this.props.tagName) };
 
