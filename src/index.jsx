@@ -99,7 +99,13 @@ class Shiitake extends ResizeCore {
 
     // are we actually trimming?
     if (this.state.testChildren.length < this.props.children.length) {
-      children = this.state.testChildren.slice(0, -3) + '...';
+      children = this.state.testChildren;
+      if (children[children.length-1] == ' ') {
+          children = children.slice(0, -2);
+      } else {
+          children = children.slice(0, -1);
+      }
+      children += '…';
     }
     this._handlingResize = false;
     this.setState({ children, lastCalculatedWidth: ReactDOM.findDOMNode(this.refs.spreader).offsetWidth });
@@ -147,6 +153,10 @@ class Shiitake extends ResizeCore {
     const vertSpacers = [];
     for (let i = 0; i < this.props.lines; i++) {
       vertSpacers.push(<span style={block} key={i}>W</span>);
+    }
+
+    if (this.props.fixHeight) {
+        wrapperStyles.height = `${fixHeight || 0}px`;
     }
 
     return (

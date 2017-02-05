@@ -13,14 +13,14 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
       },
       {
         test: /\.json$/,

@@ -135,7 +135,13 @@ var Shiitake = function (_ResizeCore) {
 
       // are we actually trimming?
       if (this.state.testChildren.length < this.props.children.length) {
-        children = this.state.testChildren.slice(0, -3) + '...';
+        children = this.state.testChildren;
+        if (children[children.length - 1] == ' ') {
+          children = children.slice(0, -2);
+        } else {
+          children = children.slice(0, -1);
+        }
+        children += '…';
       }
       this._handlingResize = false;
       this.setState({ children: children, lastCalculatedWidth: _reactDom2.default.findDOMNode(this.refs.spreader).offsetWidth });
@@ -197,6 +203,10 @@ var Shiitake = function (_ResizeCore) {
           { style: _constants.block, key: i },
           'W'
         ));
+      }
+
+      if (this.props.fixHeight) {
+        _constants.wrapperStyles.height = (fixHeight || 0) + 'px';
       }
 
       return _react2.default.createElement(
